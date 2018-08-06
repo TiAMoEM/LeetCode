@@ -4,8 +4,8 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        if len(nums) == 1:
-            return nums
+        if len(nums) <= 1:
+            return len(nums)
         slow = 0
         for i in range(1, len(nums)):
             if nums[i] != nums[slow]:
