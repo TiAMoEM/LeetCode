@@ -4,19 +4,15 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        ans = [1, 2, 3, 4, 5, 6, 8, 9]
-        if n < 9:
-            return ans[n]
-        x1, x2 = 10, 10
-        while x1 > 9 and n < len(ans):
-            while x1 % 2 == 0:
-                x1 = x1 / 2
-            while x1 % 3 == 0:
-                x1 = x1 / 3
-            while x1 % 5 ==0:
-                x1 = x1 / 5
-            if x1 == 1:
-                ans.append(x2)
-            x1 += 1
-            x2 += 1
-        return ans[n]
+        dp = [0] * (n + 1)
+        dp[1] = 1
+        i2 = i3 = i5 = 1
+        for i in range(2, n + 1):
+            dp[i] = min(dp[i2] * 2, dp[i3] * 3, dp[i5] * 5)
+            if dp[i] == dp[i2] * 2:
+                i2 += 1
+            if dp[i] == dp[i3] * 3:
+                i3 += 1
+            if dp[i] == dp[i5] * 5:
+                i5 += 1
+        return dp[-1]
