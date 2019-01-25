@@ -20,7 +20,7 @@ class MyStack:
         :rtype: int
         """
         if not self.empty():
-            return self.myStack.pop()
+            return self.myStack.top()
 
     def top(self):
         """
