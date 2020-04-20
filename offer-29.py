@@ -5,7 +5,3 @@ class Solution:
         if len(tinput) < k:
             return []
         return heapq.nsmallest(k, tinput)
-
-class Solution:
-    def GetLeastNumbers_Solution(self, tinput, k):
-        
