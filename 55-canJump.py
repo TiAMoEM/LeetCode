@@ -9,5 +9,5 @@ class Solution:
             if i <= max_distance:
                 max_distance = max(max_distance, i + nums[i])
             else:
-                break
-        return max_distance >= nums[len(nums) - 1]
+                return False
+        return max_distance >= len(nums) - 1
