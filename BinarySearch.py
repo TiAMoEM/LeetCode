@@ -9,5 +9,5 @@ def binarySearch(arr, target):
         elif arr[mid] > target:
             right = mid - 1
         else:
-            left = left + 1
+            left = mid + 1
     return None
