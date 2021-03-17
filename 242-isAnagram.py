@@ -21,3 +21,12 @@ class Solution:
             tHash = tHash * p1 + tCount[i]
             p1 *= p2
         return sHash == tHash
+
+    def isAnagram2(self, s: str, t: str) -> bool:
+        lists = list(s)
+        lists.sort()
+        s1 = "".join(lists)
+        listt = list(t)
+        listt.sort()
+        t1 = "".join(listt)
+        return s1 == t1
