@@ -5,21 +5,16 @@ class Solution:
         :type target: int
         :rtype: int
         """
-        ans = 0
+        if len(nums) == 1:
+            return 1
         left = 0
-        right = len(nums)
-        if target in nums:
-            for i in range(len(nums)):
-                if nums[i] == target:
-                    return i
-        else:
-            if target < nums[0]:
-                return 0
-            elif target > nums[-1]:
-                return len(nums)
+        right = len(nums) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
             else:
-                for i in range(len(nums)):
-                    if nums[i] < target and nums[i + 1] > target:
-                        return i + 1
-
-
+                right = mid - 1
+        return left
