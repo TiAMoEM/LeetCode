@@ -4,16 +4,16 @@ class Solution:
         :type x: int
         :rtype: int
         """
-        a = 0
-        b = x
-        c = x // 2
-        while a <= b:
-            if c ** 2 > x:
-                b = c - 1
-                c = (b + a) // 2
-            elif c ** 2 < x:
-                a = c + 1
-                c = (b + a) // 2
+        if x == 1:
+            return 1
+        left = 0
+        right = x // 2
+        while left <= right:
+            mid = (left + right) // 2
+            if mid ** 2 > x:
+                right = mid - 1
+            elif mid ** 2 < x:
+                left = mid + 1
             else:
-                return c
-        return c
+                return mid
+        return right
