@@ -18,11 +18,28 @@ class Solution:
         return ans
 
     def lcp(self, str1, str2):
-        length = min(str1, str2)
+        length = min((len(str1)), len(str2))
         index = 0
         while index < length and str1[index] == str2[index]:
             index += 1
         return str1[:index]
+
+    def longestCommonPrefix2(self, strs) -> str:
+        """
+        纵向扫描
+        最长公共前缀长度小于每一个字符串，默认取第一个长度来计算
+        """
+        if len(strs) == 0:
+            return ""
+
+        length = len(strs[0])
+        count = len(strs)
+        for i in range(length):
+            c = strs[0][i]
+            for j in range(1, count):
+                if i == len(strs[j]) or strs[j][i] != c:
+                    return strs[0][:i]
+        return strs[0]
 
     """
         python已有zip函数解法

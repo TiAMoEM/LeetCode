@@ -13,6 +13,6 @@ def quicksort(List, low, high):
                 left += 1
             List[right] = List[left]
         List[right] = flag
-        quicksort(List, low, left-1)
-        quicksort(List, left+1, right)
+        quicksort(List, low, left - 1)
+        quicksort(List, left + 1, high)
         return List
