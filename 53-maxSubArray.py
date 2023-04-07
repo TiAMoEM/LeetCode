@@ -9,16 +9,15 @@ class Solution:
         """
         if len(nums) == 0:
             return 0
-        else:
-            sum1 = max1 = nums[0]
-            for i in range(1, len(nums)):
-                if sum1 >= 0:
-                    sum1 += nums[i]
-                else:
-                    sum1 = nums[i]
-                if max1 < sum1:
-                    max1 = sum1
-            return max1
+        result = tmp = nums[0]
+        for i in range(1, len(nums)):
+            if tmp > 0:
+                tmp += nums[i]
+            else:
+                tmp = nums[i]
+            if result < tmp:
+                result = tmp
+            return result
 
     def maxSubArray2(self, nums: List) -> List:
         """
